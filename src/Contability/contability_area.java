@@ -1,6 +1,7 @@
 package Contability;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import Application.CadFunc;
 import Model.product;
 import Application.produt;
-import Model.userFunc;
+import Model.product;
 import Application.application;
 
 public class contability_area extends javax.swing.JFrame{
@@ -20,6 +21,7 @@ public class contability_area extends javax.swing.JFrame{
     private JButton consultarButton;
     private JPanel painel_contability;
     private JTextField txt_valor_lucro;
+    private JButton button1;
 
 
     public contability_area() {
@@ -74,6 +76,12 @@ public class contability_area extends javax.swing.JFrame{
                 } else{
                     JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
                 }
+            }
+        });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }

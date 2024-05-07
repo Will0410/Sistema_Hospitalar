@@ -18,7 +18,7 @@ public class loginDao {
         connection = new ConexaoMySQL().getConexaoMySQL();
 
         try {
-            String sql = "select * from user where username = ? and password = ?";
+            String sql = "select * from users where username = ? and password = ?";
 
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setString(1, objusername.getUsername());

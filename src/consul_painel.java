@@ -1,11 +1,10 @@
 import Application.CadFunc;
-import Factory.ConexaoMySQL;
 import Model.userFunc;
 
 import javax.swing.*;
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class consul_painel extends JFrame {
@@ -16,6 +15,7 @@ public class consul_painel extends JFrame {
     private JTextField txt_func_email;
     private JTextField txt_func_tel;
     private JTextField txt_func_cargo;
+    private JButton btn_voltar;
 
 
     public consul_painel() {
@@ -36,31 +36,37 @@ public class consul_painel extends JFrame {
 
                 CadFunc conexDAO = new CadFunc();
                 status = conexDAO.conect();
-                if (status  == true){
+                if (status == true) {
                     userFunc funcUser = null;
                     try {
                         funcUser = conexDAO.consulta(func_id);
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
-                    if (funcUser==null){
-                        JOptionPane.showMessageDialog(null,"Funcionário não localizado");
-                    }else{
+                    if (funcUser == null) {
+                        JOptionPane.showMessageDialog(null, "Funcionário não localizado");
+                    } else {
                         txt_func_id.setText(String.valueOf(funcUser.getFunc_id()));
                         txt_func_name.setText(funcUser.getName_func());
                         txt_func_email.setText(funcUser.getEmail_func());
                         txt_func_tel.setText(funcUser.getTel_func());
                         txt_func_cargo.setText(funcUser.getCargo_func());
                     }
-                } else{
+                } else {
                     JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
                 }
             }
 
         });
+        btn_voltar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
-    private void  listarvalues() throws SQLException {
+    private void listarvalues() throws SQLException {
         userFunc userFunc;
         CadFunc cadFunc;
         boolean status;
@@ -71,18 +77,18 @@ public class consul_painel extends JFrame {
 
         CadFunc conexDAO = new CadFunc();
         status = conexDAO.conect();
-        if (status  == true){
+        if (status == true) {
             userFunc funcUser = conexDAO.consulta(func_id);
-            if (funcUser==null){
-                JOptionPane.showMessageDialog(null,"Funcionário não localizado");
-            }else{
+            if (funcUser == null) {
+                JOptionPane.showMessageDialog(null, "Funcionário não localizado");
+            } else {
                 txt_func_id.setText(String.valueOf(funcUser.getFunc_id()));
                 txt_func_name.setText(funcUser.getName_func());
                 txt_func_email.setText(funcUser.getEmail_func());
                 txt_func_tel.setText(funcUser.getTel_func());
                 txt_func_cargo.setText(funcUser.getCargo_func());
             }
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
         }
     }

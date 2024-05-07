@@ -46,7 +46,7 @@ public class crud extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 user usuario = new user();
-                usuario.setUser_id(txt_cod_user.getText());
+                usuario.setUser_id(Integer.parseInt(txt_cod_user.getText()));
                 usuario.setUsername(txtname.getText());
                 usuario.setEmail(txtemail.getText());
                 usuario.setAge(txtage.getText());
@@ -65,7 +65,7 @@ public class crud extends JFrame {
                     }
                     JOptionPane.showMessageDialog(null, "Usuário " + txtname.getText() + " inserido com sucesso! ");
 
-                    txt_cod_user.setText("");
+
                     txtname.setText("");
                     txtemail.setText("");
                     txtage.setText("");

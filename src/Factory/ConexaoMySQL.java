@@ -49,7 +49,7 @@ public class ConexaoMySQL {
 
             String mydatabase ="mysql";        //nome do seu banco de dados
 
-            String url = "jdbc:mysql://localhost:3306/aplication";
+            String url = "jdbc:mysql://localhost:3306/aplication?users";
 
             String username = "root";        //nome de um usuário de seu BD
 

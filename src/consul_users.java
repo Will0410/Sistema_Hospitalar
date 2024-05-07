@@ -17,6 +17,7 @@ public class consul_users extends JFrame {
     private JTextField txt_proced_user;
     private JButton consultarButton;
     private JPanel painel_user;
+    private JButton button1;
 
     public consul_users() {
         setContentPane(painel_user);
@@ -56,6 +57,14 @@ public class consul_users extends JFrame {
                 }
             }
 
+        });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu frame = new Menu();
+                frame.setVisible(true);
+                dispose();
+            }
         });
     }
 }

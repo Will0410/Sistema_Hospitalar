@@ -1,7 +1,7 @@
 package Model;
 
 
-    public class user {
+    public class user extends userFunc {
 
 
 
@@ -10,7 +10,7 @@ package Model;
         public String age;
         public String password;
 
-        public String user_id;
+        public int user_id;
         public String proced;
 
         public String getProced() {
@@ -21,11 +21,12 @@ package Model;
             this.proced = proced;
         }
 
-        public String getUser_id() {
+
+        public int getUser_id() {
             return user_id;
         }
 
-        public void setUser_id(String func_id) {
+        public void setUser_id(int user_id) {
             this.user_id = user_id;
         }
 
@@ -56,5 +57,7 @@ package Model;
         public void setPassword(String password) {
             this.password = password;
         }
+
+
 
     }

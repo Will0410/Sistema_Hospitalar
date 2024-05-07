@@ -80,7 +80,7 @@ public class produt {
     public boolean conecte(){
         try {
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/aplication?produto", "root","Ju04102005");
             return true;
         } catch (ClassNotFoundException | SQLException ex) {

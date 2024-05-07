@@ -5,6 +5,7 @@ import Model.userFunc;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
 public class CadFunc {
@@ -79,11 +80,11 @@ public class CadFunc {
 
     }
 
-    public boolean conect(){
+    public boolean conect() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/aplication?func", "root","Ju04102005");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/aplication?func", "root", "Ju04102005");
             return true;
         } catch (ClassNotFoundException | SQLException ex) {
             return false;
@@ -118,11 +119,34 @@ public class CadFunc {
         }
 
 
-
     }
 
+    public List<userFunc> listar_cargos(AbstractButton comboBox) throws SQLException {
+        ArrayList<String> cargoFunc = new ArrayList<String>();
+        String query = "SELECT cargo_func FROM aplication ORDER BY cargo_func";
+        PreparedStatement stm = connection.prepareStatement(query);
 
+        ResultSet rs = stm.executeQuery(query);
+
+        while (rs.next()) {
+            String cargofunc = rs.getString("cargo_func");
+            // add group names to the array list
+            cargoFunc.add(cargofunc);
+        }
+
+        rs.close();
+
+
+        // Populate the combo box
+        DefaultComboBoxModel nvlacesso = new DefaultComboBoxModel(cargoFunc.toArray());
+        comboBox.setModel((ButtonModel) nvlacesso);
+
+        return List.of();
+    }
 }
+
+
+
 
 
 

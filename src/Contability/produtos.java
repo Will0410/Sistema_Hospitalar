@@ -5,6 +5,7 @@ import Application.produt;
 import Model.product;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ public class produtos  extends JFrame{
     private JTextField txt_valor_produt;
     private JButton btn_cad_produto;
     private JLabel Valor;
+    private JButton button1;
 
     public produtos() {
         setContentPane(painel_produtos);
@@ -48,5 +50,11 @@ public class produtos  extends JFrame{
                 }
             }
         );
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 }
