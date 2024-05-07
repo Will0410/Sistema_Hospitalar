@@ -80,6 +80,7 @@ public class login extends JFrame{
                     user objcargFunc = new user();
 
 
+
                     objcargFunc.setCargo_func(cargo_func);
 
                     loginDao objcargo = new loginDao();
